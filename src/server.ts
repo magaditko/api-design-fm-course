@@ -6,7 +6,7 @@ const app = express();
 app.get('/', (req, res) => {
   console.log('hello expres')
   res.status(200);
-  res.json({message: 'hello'})
+  res.json({message: 'hello'}) 
 })
 
 app.use('/api', router)
