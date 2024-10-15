@@ -8,14 +8,6 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))
 
-app.use((req, res, next) => {
-  // req.shh_secret = 'doggo'
-  // next();
-
-  res.status(401);
-  res.send('Nope')
-})
-
 app.get('/', (req, res) => {
   console.log('hello expres')
   res.status(200);
