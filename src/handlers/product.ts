@@ -19,10 +19,12 @@ export const getOneProduct = async (req, res) => {
   const id = req.params.id
   // we can use findUnique if we index inside the schema @@index([id, belongsToId])
   // for optimization
-  const product = await prisma.product.findFirst({
+  const product = await prisma.product.findUnique({
     where: {
-      id,
-      belongsToId: req.user.id
+      id_belongsToId: {
+        id,
+        belongsToId: req.user.id
+      }
     }
   })
 
