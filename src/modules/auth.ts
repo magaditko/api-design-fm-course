@@ -43,7 +43,7 @@ export const comparePasswords = (password, hash): Promise<boolean> => {
   return bcrypt.compare(password, hash);
 };
 
-export const hashPassword = (password) => {
+export const hashPassword = (password): Promise<string> => {
   // the 5 is the salt
   return bcrypt.hash(password, 5)
 }
