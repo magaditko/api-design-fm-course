@@ -24,6 +24,9 @@ model Product {
   belongsTo   User     @relation(fields: [belongsToId], references: [id])
   updates     Update[]
   
+  //or use index
+  @@unique([id, belongsToId])
+  
   // we can use findUnique in our getOneProduct handler
   // for optimization
   // @@index([id, belongsToId])

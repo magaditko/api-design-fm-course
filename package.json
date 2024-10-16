@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "ts-node src/index.ts",
-    "migrate": "npx prisma migrate dev --name ",
+    "migrate": "npx prisma migrate dev",
     "prismastudio": "npx prisma studio"
   },
   "keywords": [],
