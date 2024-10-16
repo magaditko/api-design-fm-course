@@ -39,7 +39,7 @@ export const protect = (req, res, next) => {
   }
 }
 
-export const comparePasswords = (password, hash) => {
+export const comparePasswords = (password, hash): Promise<boolean> => {
   return bcrypt.compare(password, hash);
 };
 
