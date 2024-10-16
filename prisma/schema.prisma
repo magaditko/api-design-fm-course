@@ -23,6 +23,10 @@ model Product {
   belongsToId String
   belongsTo   User     @relation(fields: [belongsToId], references: [id])
   updates     Update[]
+  
+  // we can use findUnique in our getOneProduct handler
+  // for optimization
+  // @@index([id, belongsToId])
 }
 
 enum UPDATE_STATUS {
