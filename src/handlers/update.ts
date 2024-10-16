@@ -33,9 +33,10 @@ export const getOneUpdate = async (req, res) => {
 
 // Create
 export const createNewUpdate = async (req, res) => {
+
   const product = await prisma.product.findUnique({
     where: {
-      id: req.body.id
+      id: req.body.productId
     }
   })
 
@@ -44,8 +45,15 @@ export const createNewUpdate = async (req, res) => {
     return res.json({message: 'nope'})
   }
 
+
   const update = await prisma.update.create({
-    data: req.body
+    data: {
+      title: req.body.title,
+      body: req.body.body,
+      product: {
+        connect: {id: product.id}
+      }
+    }
   })
 
   res.json({data: update})
