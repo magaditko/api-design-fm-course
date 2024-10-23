@@ -68,4 +68,9 @@ router.delete('/updatepoint/:id', (req, res) => {
 
 })
 
+router.use((err, req, res, next) => {
+  console.log('custom error handler')
+  res.json({message: 'error for router'})
+})
+
 export default router;

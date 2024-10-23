@@ -32,15 +32,24 @@ export const getOneProduct = async (req, res) => {
 }
 
 // Create a product
-export const createNewProduct = async (req, res) => {
-  const product = await prisma.product.create({
-    data: {
-      name: req.body.name,
-      belongsToId: req.user.id
-    }
-  })
+export const createNewProduct = async (req, res, next) => {
+  // why might this throw an error
+  // in this case the DB failed which should be 500
 
-  res.json({data: product})
+  // we can break the db max length and to catch this we have to 
+  // use error handler for router
+  try {
+    const product = await prisma.product.create({
+      data: {
+        name: req.body.name,
+        belongsToId: req.user.id
+      }
+    })
+  
+    res.json({data: product})
+  } catch (e) {
+    next(e)
+  }
 }
 
 // Update product
