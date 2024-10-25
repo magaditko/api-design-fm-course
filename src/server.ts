@@ -19,9 +19,11 @@ app.get('/', (req, res, next) => {
 
   // if we pass something to next it is treated like an error
   // we have to handle async errors and tell Express 
-  setTimeout(() => {
-    next(new Error('some error message' ))
-  }, 10)
+  // setTimeout(() => {
+  //   next(new Error('some error message' ))
+  // }, 10)
+
+  res.json({message: 'hello'})
 })
 
 app.use('/api', protect, router)
