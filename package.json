@@ -6,7 +6,9 @@
     "test": "jest",
     "dev": "ts-node src/index.ts",
     "migrate": "npx prisma migrate dev",
-    "prismastudio": "npx prisma studio"
+    "prismastudio": "npx prisma studio",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js"
   },
   "keywords": [],
   "author": "",
